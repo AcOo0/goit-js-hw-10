@@ -7,10 +7,17 @@
   </head>
   <body>
     <select class="breed-select"></select>
-    <p class="loader">Loading data, please wait...</p>
-    <p class="error">Oops! Something went wrong! Try reloading the page!</p>
+    <p class="loader load-hidden"></p>
+    <!--Loading data, please wait...-->
+    <p class="error"></p>
+    <!--Oops! Something went wrong! Try reloading the page!-->
     <div class="cat-info"></div>
 
+    <link
+      rel="stylesheet"
+      href="../node_modules/slim-select/dist/slimselect.css"
+    />
+    <script src="../node_modules/slim-select/dist/slimselect.js"></script>
     <script src="index.js" type="module"></script>
   </body>
 </html>
