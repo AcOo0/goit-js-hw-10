@@ -44,7 +44,6 @@ function handleChange(e) {
     fetchCatByBreed(selectedBreedId)
         .then(cat => {
             createMarkup(cat);
-            console.log(cat);
         })
         .catch((err) => {
             console.log(err);
@@ -59,9 +58,10 @@ function handleChange(e) {
 function createMarkup(breed) {
     const markup = `
         <img src="${breed.url ? breed.url : ''}" alt="${breed.breed ? breed.breed : ''}" width="800px">
-        <h2 class="breed-name">Breed name: ${breed.name ? breed.name : ''}</h2>
-        <p class="description">${breed.description ? breed.description : ''}</p>
-        <p class="temperament">Temperament: ${breed.temperament ? breed.temperament : ''}</p>
+        <h2 class="breed-titel">Breed name: ${breed.name ? breed.name : ''}</h2>
+        <p class="breed-description-text">${breed.description ? breed.description : ''}</p>
+        <p class="breed-temperament-text">Temperament: ${breed.temperament ? breed.temperament : ''}</p>
     `;
     refs.catInfo.innerHTML = markup;
 };
+    
