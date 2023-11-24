@@ -21,6 +21,9 @@ const slim = new SlimSelect({
 
 refs.breedSelect.addEventListener('change', handleChange);
 refs.loader.classList.remove('load-hidden');
+refs.breedSelect.style.display = 'none';
+slim.disable();
+
 fetchBreeds()
     .then((breeds) => {
         selectedBreeds(breeds);
@@ -29,6 +32,10 @@ fetchBreeds()
         console.log(err);
         Notiflix.Notify.failure('Oops, something went wrong. ' + err.message);
         refs.catInfo.innerHTML = ''
+    })
+    .finally(() => {
+        refs.loader.classList.add(classes.loadHidden);
+        slim.enable();
     });
     
     function selectedBreeds(breeds) {
@@ -50,10 +57,9 @@ function handleChange(e) {
             Notiflix.Notify.failure('Oops, something went wrong. ' + err.message);
             refs.catInfo.innerHTML = ''
         })
-        // refs.loader.classList.add('load-hidden');
-        // .finally(() => {
-        //     refs.loader.classList.add(classes.loadHidden);
-        // });
+    .finally(() => {
+        refs.loader.classList.add(classes.loadHidden);
+    });
 }
 
 function createMarkup(breed) {
