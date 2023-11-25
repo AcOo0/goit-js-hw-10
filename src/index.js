@@ -12,7 +12,8 @@ const refs = {
 };
 
 const classes = {
-    loadHidden: 'load-hidden',   
+    loadHidden: 'load-hidden',
+    selectHidden: 'is-hidden',
 };
 
 const slim = new SlimSelect({
@@ -21,7 +22,7 @@ const slim = new SlimSelect({
 
 refs.breedSelect.addEventListener('change', handleChange);
 refs.loader.classList.remove('load-hidden');
-refs.breedSelect.style.display = 'none';
+refs.breedSelect.classList.add(classes.selectHidden);
 slim.disable();
 
 fetchBreeds()
@@ -35,6 +36,7 @@ fetchBreeds()
     })
     .finally(() => {
         refs.loader.classList.add(classes.loadHidden);
+        refs.breedSelect.classList.remove(classes.selectHidden);
         slim.enable();
     });
     

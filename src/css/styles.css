@@ -59,6 +59,10 @@ body {
   display: none;
 }
 
+.is-hidden {
+  display: none;
+}
+
 .breed-select {
   font-family: monospace;
   font-size: 16px;
